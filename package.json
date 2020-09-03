@@ -1,0 +1,51 @@
+{
+  "name": "dn-robot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/main.js",
+  "build": {
+    "asar": true,
+    "appId": "com.byron.hunts",
+    "productName": "Hunts",
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    },
+    "directories": {
+      "output": "build"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    },
+    "extraResources": {
+      "from": "./byron.exe",
+      "to": "./byron.exe"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/tsc",
+    "start": "npm run build && npx electron ./dist/main.js ",
+    "exe": "npx electron-builder --win --ia32"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dm.dll": "^1.1.0",
+    "moment": "^2.25.3",
+    "winax": "^1.18.0",
+    "windows-build-tools": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.6",
+    "electron": "^8.2.5",
+    "electron-builder": "^22.6.0",
+    "electron-rebuild": "^1.11.0",
+    "typescript": "^3.8.3"
+  }
+}
